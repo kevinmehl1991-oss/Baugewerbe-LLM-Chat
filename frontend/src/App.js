@@ -22,11 +22,11 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <div className="header-left">
-            <h1>
-              <span className="icon">🏗️</span>
-              BauChat AI
-            </h1>
-            <p className="subtitle">Ihr KI-Assistent für die Baubranche</p>
+            <h1>Baugewerbe AI</h1>
+            <div className="branding">
+              <span className="by-text">by</span>
+              <img src="/logo.svg" alt="Logo" className="brand-logo" />
+            </div>
           </div>
           
           <div className="header-right">
