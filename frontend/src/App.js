@@ -25,7 +25,7 @@ function App() {
             <h1>Baugewerbe AI</h1>
             <div className="branding">
               <span className="by-text">by</span>
-              <img src="/logo.svg" alt="Logo" className="brand-logo" />
+              <img src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Logo" className="brand-logo" />
             </div>
           </div>
           
