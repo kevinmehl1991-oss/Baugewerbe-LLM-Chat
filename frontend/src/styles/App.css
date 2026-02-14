@@ -737,14 +737,16 @@ code {
 }
 
 .action-button.secondary {
-  background: white;
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  background: var(--brand-beige);
+  color: var(--brand-dark);
+  border: 1px solid rgba(241, 232, 215, 0.3);
+  font-weight: 600;
 }
 
 .action-button.secondary:hover:not(:disabled) {
-  background: var(--bg-secondary);
-  border-color: var(--secondary-color);
+  background: var(--primary-dark);
+  border-color: var(--brand-beige);
+  box-shadow: 0 2px 8px rgba(241, 232, 215, 0.2);
 }
 
 .action-button:disabled {
