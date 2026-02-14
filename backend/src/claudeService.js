@@ -7,7 +7,9 @@ class ClaudeService {
     this.client = new Anthropic({
       apiKey: process.env.ANTHROPIC_API_KEY,
     });
-    this.model = 'claude-sonnet-4-20250514'; // Claude Sonnet 4.5
+    // In backend/src/claudeService.js
+this.model = 'claude-haiku-4-20250514'; // Statt Sonnet
+   // this.model = 'claude-sonnet-4-20250514'; // Claude Sonnet 4.5
   }
 
   /**
