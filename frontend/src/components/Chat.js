@@ -10,7 +10,6 @@ function Chat({ fachbereich }) {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -41,8 +40,6 @@ function Chat({ fachbereich }) {
       sources: [],
       timestamp: new Date().toISOString()
     }]);
-
-    setError(null);
   }, [fachbereich]);
 
   // Nachricht senden
@@ -55,7 +52,6 @@ function Chat({ fachbereich }) {
 
     const userMessage = inputValue.trim();
     setInputValue('');
-    setError(null);
 
     // User-Nachricht hinzufügen
     const newUserMessage = {
@@ -112,8 +108,6 @@ function Chat({ fachbereich }) {
       } else if (err.message) {
         errorMessage = err.message;
       }
-
-      setError(errorMessage);
 
       // Fehlernachricht als Assistant-Message hinzufügen
       setMessages(prev => [...prev, {
