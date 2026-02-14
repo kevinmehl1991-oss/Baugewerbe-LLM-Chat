@@ -85,16 +85,6 @@ function Message({ message }) {
                         {source.warning}
                       </div>
                     )}
-
-                    <a 
-                      href={source.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="source-link"
-                      aria-label={`Norm ${source.norm} bei DIN Media nachschlagen`}
-                    >
-                      🔗 Bei DIN Media nachschlagen
-                    </a>
                   </div>
                 ))}
               </div>
