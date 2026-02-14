@@ -172,7 +172,6 @@ function Chat({ fachbereich }) {
   const handleNewChat = () => {
     setMessages(messages.slice(0, 1)); // Nur Willkommensnachricht behalten
     setInputValue('');
-    setError(null);
   };
 
   return (
