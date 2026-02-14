@@ -91,6 +91,7 @@ function Message({ message }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="source-link"
+                      aria-label={`Norm ${source.norm} bei DIN Media nachschlagen`}
                     >
                       🔗 Bei DIN Media nachschlagen
                     </a>
