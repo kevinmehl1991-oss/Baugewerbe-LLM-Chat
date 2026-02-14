@@ -11,30 +11,31 @@
 }
 
 :root {
-  /* Farben */
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary-color: #64748b;
+  /* Brand Farben - Aus deinem Logo */
+  --brand-beige: #f1e8d7;
+  --brand-gray: #737373;
+  --brand-dark: #323232;
+  --brand-darker: #1a1a1a;
+  
+  /* Primärfarben */
+  --primary-color: #f1e8d7;
+  --primary-dark: #d4c4a8;
+  --secondary-color: #737373;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
   
-  /* Baubranche-Farben */
-  --bau-orange: #ff6b35;
-  --bau-blue: #004e89;
-  --bau-green: #059669;
-  --bau-gray: #475569;
+  /* Hintergründe - Dunkel */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-tertiary: #2e2e2e;
+  --bg-dark: #0f0f0f;
+  --bg-card: rgba(50, 50, 50, 0.6);
   
-  /* Hintergründe */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #e2e8f0;
-  --bg-dark: #1e293b;
-  
-  /* Text */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-light: #94a3b8;
+  /* Text - Hell für dunklen Hintergrund */
+  --text-primary: #f1e8d7;
+  --text-secondary: #b8b8b8;
+  --text-light: #737373;
   
   /* Borders */
   --border-color: #e2e8f0;
@@ -62,9 +63,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--bg-secondary);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
   color: var(--text-primary);
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 code {
@@ -82,10 +84,12 @@ code {
 }
 
 .app-header {
-  background: linear-gradient(135deg, var(--bau-blue) 0%, var(--primary-color) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-darker) 100%);
+  color: var(--brand-beige);
   padding: var(--spacing-lg) var(--spacing-xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(241, 232, 215, 0.1);
 }
 
 .header-content {
@@ -102,9 +106,29 @@ code {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: var(--spacing-xs);
+  color: var(--brand-beige);
+  letter-spacing: 0.5px;
+}
+
+.branding {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.by-text {
+  font-size: 0.75rem;
+  color: var(--brand-gray);
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.brand-logo {
+  height: 25px;
+  width: auto;
+  opacity: 0.9;
 }
 
 .header-left .icon {
@@ -112,9 +136,10 @@ code {
 }
 
 .subtitle {
-  font-size: 0.95rem;
-  opacity: 0.9;
+  font-size: 0.9rem;
+  color: var(--brand-gray);
   font-weight: 400;
+  opacity: 0.9;
 }
 
 .app-main {
@@ -132,15 +157,16 @@ code {
    ============================================================================ */
 
 .info-banner {
-  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
-  border: 2px solid var(--primary-color);
+  background: linear-gradient(135deg, rgba(50, 50, 50, 0.6) 0%, rgba(35, 35, 35, 0.6) 100%);
+  border: 2px solid var(--brand-beige);
   border-radius: var(--border-radius);
   padding: var(--spacing-md) var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .info-icon {
@@ -151,11 +177,11 @@ code {
 .info-content {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
 .info-content strong {
-  color: var(--primary-color);
+  color: var(--brand-beige);
   font-weight: 600;
 }
 
@@ -252,9 +278,11 @@ code {
    ============================================================================ */
 
 .chat-container {
-  background: var(--bg-primary);
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(241, 232, 215, 0.1);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -340,16 +368,19 @@ code {
 }
 
 .message-text {
-  background: var(--bg-secondary);
+  background: rgba(46, 46, 46, 0.6);
+  backdrop-filter: blur(10px);
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--border-radius);
   line-height: 1.6;
   word-wrap: break-word;
+  border: 1px solid rgba(241, 232, 215, 0.1);
 }
 
 .message.user .message-text {
-  background: var(--primary-color);
-  color: white;
+  background: var(--brand-beige);
+  color: var(--brand-dark);
+  border: 1px solid var(--brand-beige);
 }
 
 .message.error .message-text {
@@ -686,13 +717,15 @@ code {
 }
 
 .action-button.primary {
-  background: var(--primary-color);
-  color: white;
+  background: var(--brand-beige);
+  color: var(--brand-dark);
+  font-weight: 600;
 }
 
 .action-button.primary:hover:not(:disabled) {
   background: var(--primary-dark);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(241, 232, 215, 0.3);
+  transform: translateY(-1px);
 }
 
 .action-button.secondary {
@@ -754,19 +787,19 @@ code {
   width: 50px;
   height: 50px;
   border: none;
-  background: var(--primary-color);
-  color: white;
+  background: var(--brand-beige);
+  color: var(--brand-dark);
   font-size: 1.5rem;
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
 }
 
 .send-button:hover:not(:disabled) {
   background: var(--primary-dark);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(241, 232, 215, 0.4);
   transform: translateY(-2px);
 }
 
@@ -797,10 +830,11 @@ code {
    ============================================================================ */
 
 .app-footer {
-  background: var(--bg-dark);
-  color: white;
+  background: var(--brand-dark);
+  color: var(--brand-beige);
   padding: var(--spacing-lg) var(--spacing-xl);
   margin-top: var(--spacing-2xl);
+  border-top: 1px solid rgba(241, 232, 215, 0.1);
 }
 
 .footer-content {
@@ -820,7 +854,7 @@ code {
 }
 
 .footer-links a {
-  color: white;
+  color: var(--brand-beige);
   text-decoration: none;
   transition: opacity 0.2s;
 }
