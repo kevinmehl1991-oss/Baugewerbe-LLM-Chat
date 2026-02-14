@@ -80,7 +80,7 @@ function Message({ message }) {
                       </div>
                     )}
 
-                    {source.warning && (
+                    {source.status === 'zurückgezogen' && source.warning && (
                       <div className="source-alert">
                         {source.warning}
                       </div>
