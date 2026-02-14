@@ -1,0 +1,46 @@
+# docker-compose.yml - Docker Compose Setup für Bau-Chat-System
+
+version: '3.8'
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bau-chat-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=3001
+      - NODE_ENV=production
+      - FRONTEND_URL=http://localhost:3000
+    restart: unless-stopped
+    networks:
+      - bau-chat-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bau-chat-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:3001
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - bau-chat-network
+
+networks:
+  bau-chat-network:
+    driver: bridge
+
+# Verwendung:
+# 1. Erstelle .env Datei im Root mit ANTHROPIC_API_KEY
+# 2. docker-compose up -d
+# 3. App läuft auf http://localhost:3000
